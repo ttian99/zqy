@@ -19,7 +19,6 @@ const routes = (
       <Route path="/editTest" component={EditTest} />
       <Route path="/searchTest" component={SearchTest} />
     </Route>
-    <Route path="*" component={Page404} />
   </Router>
 );
 
