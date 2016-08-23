@@ -34,30 +34,34 @@ class App extends React.Component {
         >
           <TabBar.Item
             component={Link}
+            icon="list"
+            title="编辑物流信息"
+            selected={router.isActive('/editExpress', true)}
+            to="/editExpress"
+            onlyActiveOnIndex
+          />
+          <TabBar.Item
+            component={Link}
             icon="home"
-            title="学校查小区"
-            selected={router.isActive('/school', true)}
-            to="/school"
+            title="查询物流信息"
+            selected={router.isActive('/searchExpress', true)}
+            to="/searchExpress"
             onlyActiveOnIndex
           />
           <TabBar.Item
             component={Link}
             icon="list"
-            title="小区查学校"
-            // badge="404"
-            // @see https://github.com/reactjs/react-router/blob/0616f6e14337f68d3ce9f758aa73f83a255d6db3/docs/API.md#isactivepathorloc-indexonly
-            selected={router.isActive('/district', true)}
-            to="/district"
+            title="编辑实验记录"
+            selected={router.isActive('/editExpress', true)}
+            to="/editExpress" 
             onlyActiveOnIndex
           />
           <TabBar.Item
             component={Link}
             icon="info"
-            title="查学位锁定"
-            // badge="404"
-            // @see https://github.com/reactjs/react-router/blob/0616f6e14337f68d3ce9f758aa73f83a255d6db3/docs/API.md#isactivepathorloc-indexonly
-            selected={router.isActive('/degree', true)}
-            to="/degree"
+            title="查询实验记录"
+            selected={router.isActive('/editExpress', true)}
+            to="/editExpress"
             onlyActiveOnIndex
           />
         </TabBar>

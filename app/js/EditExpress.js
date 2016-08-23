@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Container,
-  Group,
-  Slider,
-  Field,
-  Button,
-  List,
-} from 'amazeui-touch';
+import {Container, Group, Slider, Field, Button, List, } from 'amazeui-touch'; 
 import Fetch from './Fetch';
 
 
@@ -42,12 +35,17 @@ class EditExpress extends React.Component {
 
   handleSubmit() {
     console.log('------- submit --------');
-    Fetch.
+    Fetch({
+      cmd: 'search-info',
+      words: '哈哈'
+    }, (err, json) => {
+      console.log('------- back ----')
+    });
   }
 
   render() {
     return (
-      <Container >
+      <Container  scrollable={true}>
         <Group
           header="物流收件信息录入"
           noPadded
@@ -61,7 +59,7 @@ class EditExpress extends React.Component {
                   />
               );
             })}
-          <Button amStyle="primary" block onclick={this.handleSubmit.bind(this)}>提交</Button>
+          <Button amStyle="primary" block onClick={this.handleSubmit.bind(this)}>提交</Button>
         </Group>
 
       </Container>
@@ -70,19 +68,3 @@ class EditExpress extends React.Component {
 }
 
 export default EditExpress;
-
-
-//  <List>
-//            {arr.map((field, i) => {
-//               return (
-//                 <List.Item
-//                   key={i}
-//                   // nested="input"
-//                 >
-//                   <Field
-//                     {...field}
-//                   />
-//                 </List.Item>
-//               );
-//             })}
-//           </List>
