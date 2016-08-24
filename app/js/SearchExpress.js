@@ -3,7 +3,7 @@ import {Container, Group, Slider, Field, Icon, Button, Grid, List } from 'amazeu
 
 
 
-const arr = [];
+const arr = [1,2,2,3,4,5,6,67,7,8,9,10];
 
 
 class SearchExpress extends React.Component {
@@ -14,7 +14,7 @@ class SearchExpress extends React.Component {
   }
   render() {
     return (
-      <Container {...this.props}>
+      <Container scrollable={true}>
         <Field
           placeholder="请输入关键词..."
           labelBefore={<Icon name="search" />}
@@ -24,7 +24,9 @@ class SearchExpress extends React.Component {
         <List>
           {
             arr.map((value, i) => {
-
+              return(
+                <List.Item key={i}>{value}</List.Item>
+              )
             })
           }
         </List>
