@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Group, Slider, Field, Button, List, } from 'amazeui-touch'; 
 import Fetch from './Fetch';
-
+import _ from 'lodash';
 
 const arr = [
   {labelBefore: "厂家", ref: 'mfr', type: 'text'},
@@ -35,6 +35,11 @@ class EditExpress extends React.Component {
 
   handleSubmit() {
     console.log('------- submit --------');
+    
+    _.forOwn(o, function (value, key) {
+      result.push(key + ': ' + value);
+    });
+
     Fetch({
       cmd: 'search-info',
       words: '哈哈'
