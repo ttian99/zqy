@@ -1,7 +1,7 @@
 import React from 'react';
 import {Container, Group, Slider, Field, Button, List, } from 'amazeui-touch'; 
 import Fetch from './Fetch';
-import _ from 'lodash';
+// import _ from 'lodash';
 
 const arr = [
   {labelBefore: "厂家", ref: 'mfr', type: 'text'},
@@ -13,6 +13,17 @@ const arr = [
   {labelBefore: "物件型号", ref: 'goodsMod', type: 'text'},
   {labelBefore: "备注", ref: 'desc', type: 'text'}
 ]
+
+// const dataObj = {
+//   mfr: '',
+//   epsCnee: '',
+//   trueCnee: '',
+//   time: '',
+//   goodsName: '',
+//   goodsNum: '',
+//   goodsMod: '',
+//   desc: '',
+// }
 
 
 class EditExpress extends React.Component {
@@ -33,18 +44,26 @@ class EditExpress extends React.Component {
     };
   }
 
+  getRefValue() {
+    const dataObj = {};
+    arr.forEach((item, id) => {
+      const refName = arr[id].ref;
+      const obj = this.refs[refName];
+      const value = obj.getValue();
+      dataObj[refName] = value;
+    });
+    return dataObj;
+  }
+
   handleSubmit() {
     console.log('------- submit --------');
-    
-    _.forOwn(o, function (value, key) {
-      result.push(key + ': ' + value);
-    });
-
-    Fetch({
-      cmd: 'search-info',
-      words: '哈哈'
-    }, (err, json) => {
+    const obj = this.getRefValue();
+    console.log(obj);
+    obj.cmd = 'add-info';
+    Fetch(obj, (err, json) => {
+      if(err) console.log(err)
       console.log('------- back ----')
+      console.log(json);
     });
   }
 
@@ -60,6 +79,7 @@ class EditExpress extends React.Component {
                   <Field
                     {...field}
                     key={i}
+                    ref={arr[i].ref}
                     defaultValue={this.state.epsData[arr[i]]}
                   />
               );
