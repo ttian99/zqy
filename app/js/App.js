@@ -52,16 +52,16 @@ class App extends React.Component {
             component={Link}
             icon="list"
             title="编辑实验记录"
-            selected={router.isActive('/editExpress', true)}
-            to="/editExpress" 
+            selected={router.isActive('/editTest', true)}
+            to="/editTest" 
             onlyActiveOnIndex
           />
           <TabBar.Item
             component={Link}
             icon="info"
             title="查询实验记录"
-            selected={router.isActive('/editExpress', true)}
-            to="/editExpress"
+            selected={router.isActive('/searchTest', true)}
+            to="/searchTest"
             onlyActiveOnIndex
           />
         </TabBar>
