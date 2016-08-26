@@ -20,7 +20,13 @@ class SearchExpress extends React.Component {
   // 挂载完成后立刻调用
   componentDidMount = () => {} 
 
-  handlerClick = () => {
+  // 键盘按键抬起回调
+  handleKeyUp = (evt) => {
+    console.log('-------- keyup ------');
+    evt.keyCode === 13 && this.handleClick()
+  }
+
+  handleClick = () => {
     console.log('-------- click --------');
     const searchValue = this.refs.input.getValue();
     console.log("-- searchValue -- "+ searchValue);
@@ -45,7 +51,9 @@ class SearchExpress extends React.Component {
 
   render() {
     const btn = (
-      <Button onClick={this.handlerClick.bind(this)}>查询</Button>
+      <Button 
+        onClick={this.handleClick.bind(this)}
+      >查询</Button>
     );
     return (
       <Container scrollable={true}>
@@ -54,6 +62,7 @@ class SearchExpress extends React.Component {
           placeholder="请输入关键词..."
           labelBefore={<Icon name="search" />}
           btnAfter={btn}
+          onKeyUp = { this.handleKeyUp } // 监听键盘的键抬起
         />
         <Grid>
         <List className="search-express-list" >
