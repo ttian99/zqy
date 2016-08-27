@@ -1,6 +1,7 @@
 import React from 'react';
 import {Container, Group, Slider, Field, Button, List, } from 'amazeui-touch'; 
 import Fetch from './Fetch';
+import Pop from './Pop';
 // import _ from 'lodash';
 
 const arr = [
@@ -70,6 +71,7 @@ class EditExpress extends React.Component {
   render() {
     return (
       <Container  scrollable={true}>
+        <Pop />
         <Group
           header="物流收件信息录入"
           noPadded

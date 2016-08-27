@@ -2,6 +2,7 @@ import React from 'react';
 import {Container, Group, Slider, Field, Icon, Button, Grid, List } from 'amazeui-touch';
 import  Fetch from './Fetch';
 import moment from 'moment';
+import Pop from './Pop';
 
 class SearchExpress extends React.Component {
   constructor(props){
@@ -57,6 +58,7 @@ class SearchExpress extends React.Component {
     );
     return (
       <Container scrollable={true}>
+        <Pop />
         <Field
           ref="input"
           placeholder="请输入关键词..."
